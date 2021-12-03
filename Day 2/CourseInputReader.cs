@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Common;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,12 +13,12 @@ namespace AdventOfCode2021.Day_2
         {
             return new List<Course>
             {
-                new Course{Direction=Direction.Foward, Position=5},
-                new Course{Direction=Direction.Down, Position=5},
-                new Course{Direction=Direction.Foward, Position=8},
-                new Course{Direction=Direction.Up, Position=3},
-                new Course{Direction=Direction.Down, Position=8},
-                new Course{Direction=Direction.Foward, Position=2},
+                new Course{Direction=Direction.Foward, TraveledDistance=5},
+                new Course{Direction=Direction.Down, TraveledDistance=5},
+                new Course{Direction=Direction.Foward, TraveledDistance=8},
+                new Course{Direction=Direction.Up, TraveledDistance=3},
+                new Course{Direction=Direction.Down, TraveledDistance=8},
+                new Course{Direction=Direction.Foward, TraveledDistance=2},
             };
         }
         internal static List<Course> CoursePart1()
@@ -43,7 +44,7 @@ namespace AdventOfCode2021.Day_2
             return new Course
             {
                 Direction = GetDirectionFromText(splittedCourseText[0]),
-                Position = int.Parse(splittedCourseText[1]),
+                TraveledDistance = int.Parse(splittedCourseText[1]),
             };
         }
 
@@ -61,20 +62,5 @@ namespace AdventOfCode2021.Day_2
                     return Direction.None;
             }
         }
-    }
-
-
-    public class Course
-    {
-        public int Position { get; set; }
-        public Direction Direction { get; set; }
-    }
-
-    public enum Direction
-    {
-        None,
-        Foward,
-        Down,
-        Up,
     }
 }

@@ -4,17 +4,23 @@ using AdventOfCode2021.Day_2;
 using AdventOfCode2021.Day_3;
 using AdventOfCode2021.Fluff;
 
+var originalBgColor = Console.ForegroundColor;
+Console.ForegroundColor = ConsoleColor.Blue;
 Console.WriteLine("Advent of Code 2021");
 
-/*
+#region Day 1
+Console.ForegroundColor = ConsoleColor.Red;
 Console.WriteLine($"{Environment.NewLine}----- Day 1 -----");
+Console.ForegroundColor = originalBgColor;
 Console.WriteLine($"Answer example part 1: {DepthIncreasementCalculator.CalculateDepthIncreasementsExamplePart1()}");
 Console.WriteLine($"Answer part 1: {DepthIncreasementCalculator.CalculateDepthIncreasementsPart1()}");
 Console.WriteLine(String.Empty);
 Console.WriteLine($"Answer example part 2: {DepthIncreasementCalculator.CalculateDepthIncreasementsExamplePart2()}");
 Console.WriteLine($"Answer part 2: {DepthIncreasementCalculator.CalculateDepthIncreasementsPart2()}");
 Console.WriteLine(String.Empty);
+#endregion
 
+#region Day 2
 Console.WriteLine($"{Environment.NewLine}----- Day 2 -----");
 
 var courseCalculationExample = CourseCalculatorPart1.CalculateCourseExample();
@@ -25,9 +31,10 @@ var courseCalculationExample2 = CourseCalculatorPart2.CalculateCourseExample();
 Console.WriteLine($"Answer example part 2: Depth:{courseCalculationExample2.Depth}, Position:{courseCalculationExample2.Position}");
 var courseCalculationPart2 = CourseCalculatorPart2.CalculateCourse();
 Console.WriteLine($"Answer part 2: Depth:{courseCalculationPart2.Depth}, Position:{courseCalculationPart2.Position} = depth*postion:{courseCalculationPart2.Depth * courseCalculationPart2.Position}");
-*/
+#endregion
 
-var originalBgColor = Console.ForegroundColor;
+#region Day 3
+originalBgColor = Console.ForegroundColor;
 Console.ForegroundColor = ConsoleColor.Red;
 Console.WriteLine($"{Environment.NewLine}----- Day 3 -----");
 Console.ForegroundColor = originalBgColor;
@@ -37,7 +44,9 @@ new DiagnosticReportDecoderPart1().DecodePart1();
 
 new DiagnosticReportDecoderPart2().CalculateLifeSupportRatingExample();
 new DiagnosticReportDecoderPart2().CalculateLifeSupportRating();
+#endregion
 
+#region Fluff
 originalBgColor = Console.ForegroundColor;
 Console.ForegroundColor = ConsoleColor.Green;
 Console.WriteLine($"{Environment.NewLine}----- Fluff -----");
@@ -52,3 +61,5 @@ var elfTwoBetterNavigator = new NavigatorTwo();
 var submarineTwo = new Submarine(elfTwoBetterNavigator);
 var destinationSubTwo = submarineTwo.PlotCourse(CourseInputReader.CoursePart2());
 Console.WriteLine($"Submarine 2) Depth: {destinationSubTwo.newDepth}, Position: {destinationSubTwo.newPosition}, depth*position: {destinationSubTwo.newDepth * destinationSubTwo.newPosition}");
+
+#endregion

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Common;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -31,14 +32,14 @@ namespace AdventOfCode2021.Day_2
                 switch (course.Direction)
                 {
                     case Direction.Up:
-                        aim -= course.Position;
+                        aim -= course.TraveledDistance;
                         break;
                     case Direction.Down:
-                        aim += course.Position;
+                        aim += course.TraveledDistance;
                         break;
                     case Direction.Foward:
-                        position += course.Position;
-                        depth += course.Position * aim;
+                        position += course.TraveledDistance;
+                        depth += course.TraveledDistance * aim;
                         break;
                     case Direction.None:
                         break;
