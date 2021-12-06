@@ -4,11 +4,13 @@ using AdventOfCode2021.Day_2;
 using AdventOfCode2021.Day_3;
 using AdventOfCode2021.Day_4;
 using AdventOfCode2021.Day_5;
+using AdventOfCode2021.Day_6;
 
 var originalBgColor = Console.ForegroundColor;
 Console.ForegroundColor = ConsoleColor.Yellow;
 Console.WriteLine("Advent of Code 2021");
 
+#region previous
 /*
 #region Day 1
 Console.ForegroundColor = ConsoleColor.Red;
@@ -117,4 +119,23 @@ var answer2 = calculator.CalculatePart2();
 Console.WriteLine($"Part 2: {answer2} overlapping points");
 #endregion
 */
+#endregion
+
+#region Day 6
+Console.ForegroundColor = ConsoleColor.Red;
+Console.WriteLine($"{Environment.NewLine}----- Day 5 -----");
+Console.ForegroundColor = originalBgColor;
+
+
+var initialExampleState = new List<int> { 3, 4, 3, 1, 2 };
+var pInitialExampleState = new List<int> { 3, 4, 3, 1, 2 };
+var pState1 = new List<int> { 5, 3, 2, 2, 1, 1, 4, 1, 5, 5, 1, 3, 1, 5, 1, 2, 1, 4, 1, 2, 1, 2, 1, 4, 2, 4, 1, 5, 1, 3, 5, 4, 3, 3, 1, 4, 1, 3, 4, 4, 1, 5, 4, 3, 3, 2, 5, 1, 1, 3, 1, 4, 3, 2, 2, 3, 1, 3, 1, 3, 1, 5, 3, 5, 1, 3, 1, 4, 2, 1, 4, 1, 5, 5, 5, 2, 4, 2, 1, 4, 1, 3, 5, 5, 1, 4, 1, 1, 4, 2, 2, 1, 3, 1, 1, 1, 1, 3, 4, 1, 4, 1, 1, 1, 4, 4, 4, 1, 3, 1, 3, 4, 1, 4, 1, 2, 2, 2, 5, 4, 1, 3, 1, 2, 1, 4, 1, 4, 5, 2, 4, 5, 4, 1, 2, 1, 4, 2, 2, 2, 1, 3, 5, 2, 5, 1, 1, 4, 5, 4, 3, 2, 4, 1, 5, 2, 2, 5, 1, 4, 1, 5, 1, 3, 5, 1, 2, 1, 1, 1, 5, 4, 4, 5, 1, 1, 1, 4, 1, 3, 3, 5, 5, 1, 5, 2, 1, 1, 3, 1, 1, 3, 2, 3, 4, 4, 1, 5, 5, 3, 2, 1, 1, 1, 4, 3, 1, 3, 3, 1, 1, 2, 2, 1, 2, 2, 2, 1, 1, 5, 1, 2, 2, 5, 2, 4, 1, 1, 2, 4, 1, 2, 3, 4, 1, 2, 1, 2, 4, 2, 1, 1, 5, 3, 1, 4, 4, 4, 1, 5, 2, 3, 4, 4, 1, 5, 1, 2, 2, 4, 1, 1, 2, 1, 1, 1, 1, 5, 1, 3, 3, 1, 1, 1, 1, 4, 1, 2, 2, 5, 1, 2, 1, 3, 4, 1, 3, 4, 3, 3, 1, 1, 5, 5, 5, 2, 4, 3, 1, 4 };
+
+ParallelLanternfishSpawnModel pModelExample = new ParallelLanternfishSpawnModel(pInitialExampleState);
+ParallelLanternfishSpawnModel pModelPart1 = new ParallelLanternfishSpawnModel(pState1);
+
+GroupedLanternfishModel groupedModel = new GroupedLanternfishModel();
+groupedModel.ForwardXDays(256, pState1);
+#endregion
+
 Console.ReadKey();
