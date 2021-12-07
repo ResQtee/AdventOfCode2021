@@ -5,6 +5,7 @@ using AdventOfCode2021.Day_3;
 using AdventOfCode2021.Day_4;
 using AdventOfCode2021.Day_5;
 using AdventOfCode2021.Day_6;
+using AdventOfCode2021.Day_7;
 
 var originalBgColor = Console.ForegroundColor;
 Console.ForegroundColor = ConsoleColor.Yellow;
@@ -118,12 +119,10 @@ Console.WriteLine($"Example 2: {example2} overlapping points");
 var answer2 = calculator.CalculatePart2();
 Console.WriteLine($"Part 2: {answer2} overlapping points");
 #endregion
-*/
-#endregion
 
 #region Day 6
 Console.ForegroundColor = ConsoleColor.Red;
-Console.WriteLine($"{Environment.NewLine}----- Day 5 -----");
+Console.WriteLine($"{Environment.NewLine}----- Day 6 -----");
 Console.ForegroundColor = originalBgColor;
 
 
@@ -136,6 +135,30 @@ ParallelLanternfishSpawnModel pModelPart1 = new ParallelLanternfishSpawnModel(pS
 
 GroupedLanternfishModel groupedModel = new GroupedLanternfishModel();
 groupedModel.ForwardXDays(256, pState1);
+#endregion
+*/
+#endregion
+
+#region Day 7
+Console.ForegroundColor = ConsoleColor.Red;
+Console.WriteLine($"{Environment.NewLine}----- Day 7 -----");
+Console.ForegroundColor = originalBgColor;
+
+
+var initialExampleStateD7 = new List<int> { 16, 1, 2, 0, 4, 2, 7, 1, 2, 14 };
+var sas = new SubmarineAlignmentSystem();
+
+var strategy = sas.CalculateBestAlignment(initialExampleStateD7, 0, 10);
+Console.WriteLine($"Example) Cheapest level: {strategy.Level} - fuel cost: {strategy.FuelCost}");
+
+var crabPositions1 = CrabPositionsReader.ReadCrabPositions(@".\Day 7\Input\crabPositions.txt");
+var strategy1 = sas.CalculateBestAlignment(crabPositions1, 0, 2000);
+Console.WriteLine($"Part 1) Cheapest level: {strategy1.Level} - fuel cost: {strategy1.FuelCost}");
+
+var sasP2 = new SubmarineAlignmentSystemPart2();
+var strategy2 = sasP2.CalculateBestAlignment(crabPositions1, 0, 2000);
+Console.WriteLine($"Part 2) Cheapest level: {strategy2.Level} - fuel cost: {strategy2.FuelCost}");
+
 #endregion
 
 Console.ReadKey();
