@@ -1,11 +1,15 @@
 ﻿// See https://aka.ms/new-console-template for more information
 using AdventOfCode2021.Day_1;
+using AdventOfCode2021.Day_10;
+using AdventOfCode2021.Day_11;
 using AdventOfCode2021.Day_2;
 using AdventOfCode2021.Day_3;
 using AdventOfCode2021.Day_4;
 using AdventOfCode2021.Day_5;
 using AdventOfCode2021.Day_6;
 using AdventOfCode2021.Day_7;
+using AdventOfCode2021.Day_8;
+using AdventOfCode2021.Day_9;
 
 var originalBgColor = Console.ForegroundColor;
 Console.ForegroundColor = ConsoleColor.Yellow;
@@ -136,8 +140,6 @@ ParallelLanternfishSpawnModel pModelPart1 = new ParallelLanternfishSpawnModel(pS
 GroupedLanternfishModel groupedModel = new GroupedLanternfishModel();
 groupedModel.ForwardXDays(256, pState1);
 #endregion
-*/
-#endregion
 
 #region Day 7
 Console.ForegroundColor = ConsoleColor.Red;
@@ -159,6 +161,123 @@ var sasP2 = new SubmarineAlignmentSystemPart2();
 var strategy2 = sasP2.CalculateBestAlignment(crabPositions1, 0, 2000);
 Console.WriteLine($"Part 2) Cheapest level: {strategy2.Level} - fuel cost: {strategy2.FuelCost}");
 
+#endregion
+#region Day 8
+Console.ForegroundColor = ConsoleColor.Red;
+Console.WriteLine($"{Environment.NewLine}----- Day 8 -----");
+Console.ForegroundColor = originalBgColor;
+
+SignalPatternReader reader = new SignalPatternReader();
+var signalDecoder = new SignalDecoder();
+
+var exampleSignals = reader.ReadSignalPatterns(@".\Day 8\Input\ExampleSignalPatterns.txt");
+signalDecoder.Decode(exampleSignals[0]);
+
+var examplePart1Signals = reader.ReadSignalPatterns(@".\Day 8\Input\ExamplePart1SignalPatterns.txt");
+var examplePart1Answer = signalDecoder.Count1478(examplePart1Signals);
+Console.WriteLine($"Total is: {examplePart1Answer}");
+
+var part1Signals = reader.ReadSignalPatterns(@".\Day 8\Input\Part1SignalPatterns.txt");
+var answer1 = signalDecoder.Count1478(part1Signals);
+Console.WriteLine($"Total is: {answer1}");
+
+#endregion
+#region Day 9
+Console.ForegroundColor = ConsoleColor.Red;
+Console.WriteLine($"{Environment.NewLine}----- Day 9 -----");
+Console.ForegroundColor = originalBgColor;
+
+var heightMapReader = new HeightMapReader();
+
+var exampleHeightMap = heightMapReader.Read(@".\Day 09\Input\ExampleHeightMap.txt");
+var exampleLowPoints = exampleHeightMap.FindLowPoints();
+var exampleRiskLevel = exampleHeightMap.CalculateRiskLevelSum(exampleLowPoints);
+Console.WriteLine($"Risk level: {exampleRiskLevel}");
+var examapleBasinSizes = exampleHeightMap.CalculateAllBasinSize(exampleLowPoints);
+var exampleTop3 = exampleHeightMap.Find3LargestBasin(examapleBasinSizes);
+long exampleScore = exampleTop3.Aggregate( (s, x) => s*x);
+Console.WriteLine($"Score: {exampleScore}");
+
+Console.WriteLine($"Part 1");
+var heightMap1 = heightMapReader.Read(@".\Day 09\Input\HeightMap1.txt");
+var lowPoints1 = heightMap1.FindLowPoints();
+var riskLevel1 = heightMap1.CalculateRiskLevelSum(lowPoints1);
+Console.WriteLine($"Risk level: {riskLevel1}");
+
+var basinSizes1 = heightMap1.CalculateAllBasinSize(lowPoints1);
+var threeLargest1 = heightMap1.Find3LargestBasin(basinSizes1);
+var score1 = threeLargest1.Aggregate( (s, x) => s* x);
+Console.WriteLine($"Score: {score1}");
+#endregion
+#region Day 10
+Console.ForegroundColor = ConsoleColor.Red;
+Console.WriteLine($"{Environment.NewLine}----- Day 10 -----");
+Console.ForegroundColor = originalBgColor;
+SyntaxScoring syntaxScoring = new SyntaxScoring();
+AutoComplete autoComplete = new AutoComplete();
+
+var results = syntaxScoring.ValidateChunkReport(File.ReadAllLines(@".\Day 10\Input\Example.txt"));
+var totalScore = syntaxScoring.TotalScore(results);
+foreach (var result in results)
+{
+    if (result.IsValid)
+    {
+        Console.ForegroundColor = ConsoleColor.Gray;
+    }
+    else
+    {
+        Console.ForegroundColor = ConsoleColor.Red;
+    }
+
+    Console.WriteLine(result.OriginalSyntax);
+}
+Console.ResetColor();
+Console.WriteLine();
+Console.WriteLine($"Total score is: {totalScore}");
+var autoCompleteScore = autoComplete.MiddleScore(results.Where(r => !r.IsComplete).ToList());
+Console.WriteLine($"Autocomplete score is: {autoCompleteScore}");
+
+Console.WriteLine();
+
+var part1ValidationResults = syntaxScoring.ValidateChunkReport(File.ReadAllLines(@".\Day 10\Input\Part1.txt"));
+var part1TotalScore = syntaxScoring.TotalScore(part1ValidationResults);
+Console.WriteLine($"Part 1 total score is: {part1TotalScore}");
+
+var part1AutoCompleteScore = autoComplete.MiddleScore(part1ValidationResults.Where(r => !r.IsComplete).ToList());
+Console.WriteLine($"Part 1 autocomplete score is: {part1AutoCompleteScore}");
+#endregion
+*/
+#endregion
+
+#region Day 11
+Console.ForegroundColor = ConsoleColor.Red;
+Console.WriteLine($"{Environment.NewLine}----- Day 11 -----");
+Console.ForegroundColor = originalBgColor;
+
+var exampleFile = new[]
+{
+    "5483143223",
+    "2745854711",
+    "5264556173",
+    "6141336146",
+    "6357385478",
+    "4167524645",
+    "2176841721",
+    "6882881134",
+    "4846848554",
+    "5283751526"
+};
+
+var delr = new DumboEnergyLevelReader();
+var exampleMap = delr.CreateDumboOctopusMap(exampleFile);
+
+DumboSimulator sim = new DumboSimulator();
+//sim.Simulate(exampleMap, 100);
+Console.WriteLine($"Steps: {sim.SynchronizedFlashCounter(exampleMap)}");
+
+var dumboMap = delr.Read(@".\Day 11\Input\DumboEnergyLevels.txt");
+//sim.Simulate(dumboMap, 100);
+Console.WriteLine($"Steps: {sim.SynchronizedFlashCounter(dumboMap)}");
 #endregion
 
 Console.ReadKey();

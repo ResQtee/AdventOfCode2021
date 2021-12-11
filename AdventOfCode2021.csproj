@@ -12,40 +12,64 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Update="Day 1\Input\SonarSweeps1.txt">
+    <None Update="Day 01\Input\SonarSweeps1.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Update="Day 1\Input\SonarSweeps2.txt">
+    <None Update="Day 01\Input\SonarSweeps2.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Update="Day 2\Input\Course1.txt">
+    <None Update="Day 02\Input\Course1.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Update="Day 2\Input\Course2.txt">
+    <None Update="Day 02\Input\Course2.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Update="Day 3\Input\DiagnosticReport2.txt">
+    <None Update="Day 03\Input\DiagnosticReport2.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Update="Day 3\Input\DiagnosticReport1.txt">
+    <None Update="Day 03\Input\DiagnosticReport1.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Update="Day 4\Input\BingoInputExample1.txt">
+    <None Update="Day 04\Input\BingoInputExample1.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Update="Day 4\Input\BingoInput1.txt">
+    <None Update="Day 04\Input\BingoInput1.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Update="Day 5\Input\HydrothermalVentList1.txt">
+    <None Update="Day 05\Input\HydrothermalVentList1.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Update="Day 7\Input\crabPositions.txt">
+    <None Update="Day 07\Input\crabPositions.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Day 08\Input\ExampleSignalPatterns.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Day 08\Input\Part1SignalPatterns.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Day 08\Input\ExamplePart1SignalPatterns.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Day 09\Input\HeightMap1.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Day 09\Input\ExampleHeightMap.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Day 10\Input\Example.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Day 10\Input\Part1.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Day 11\Input\DumboEnergyLevels.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Day 6\Input\" />
+    <Folder Include="Day 06\Input\" />
     <Folder Include="Fluff\" />
   </ItemGroup>
 
