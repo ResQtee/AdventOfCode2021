@@ -2,6 +2,7 @@
 using AdventOfCode2021.Day_1;
 using AdventOfCode2021.Day_10;
 using AdventOfCode2021.Day_11;
+using AdventOfCode2021.Day_12;
 using AdventOfCode2021.Day_2;
 using AdventOfCode2021.Day_3;
 using AdventOfCode2021.Day_4;
@@ -246,8 +247,6 @@ Console.WriteLine($"Part 1 total score is: {part1TotalScore}");
 var part1AutoCompleteScore = autoComplete.MiddleScore(part1ValidationResults.Where(r => !r.IsComplete).ToList());
 Console.WriteLine($"Part 1 autocomplete score is: {part1AutoCompleteScore}");
 #endregion
-*/
-#endregion
 
 #region Day 11
 Console.ForegroundColor = ConsoleColor.Red;
@@ -279,5 +278,45 @@ var dumboMap = delr.Read(@".\Day 11\Input\DumboEnergyLevels.txt");
 //sim.Simulate(dumboMap, 100);
 Console.WriteLine($"Steps: {sim.SynchronizedFlashCounter(dumboMap)}");
 #endregion
+*/
+#endregion
 
+#region Day 12
+Console.ForegroundColor = ConsoleColor.Red;
+Console.WriteLine($"{Environment.NewLine}----- Day 12 -----");
+Console.ForegroundColor = originalBgColor;
+
+var caveMapReader = new CaveMapReader();
+
+var example1Caves = new[] {"start-A","start-b","A-c","A-b","b-d","A-end","b-end"};
+var example2Caves = new[] {"dc-end","HN-start","start-kj","dc-start","dc-HN","LN-dc","HN-end","kj-sa","kj-HN","kj-dc",};
+var example3Caves = new[] {"fs-end","he-DX","fs-he","start-DX","pj-DX","end-zg","zg-sl","zg-pj","pj-he",
+                            "RW-he","fs-DX","pj-RW","zg-RW","start-pj","he-WI","zg-he","pj-fs","start-RW",
+                          };
+
+var example1Map = caveMapReader.ReadCaves(example1Caves);
+var example1Paths = caveMapReader.CountAllStartToEndPaths(example1Map);
+Console.WriteLine($"No of paths to end: {example1Paths}");
+var example1Paths2 = caveMapReader.CountAllStartToEndPathsPart2(example1Map);
+Console.WriteLine($"No of paths to end: {example1Paths2}");
+
+var example2Map = caveMapReader.ReadCaves(example2Caves);
+var example2Paths = caveMapReader.CountAllStartToEndPaths(example2Map);
+Console.WriteLine($"No of paths to end: {example2Paths}");
+var example2Paths2 = caveMapReader.CountAllStartToEndPathsPart2(example2Map);
+Console.WriteLine($"No of paths to end: {example2Paths2}");
+
+var example3Map = caveMapReader.ReadCaves(example3Caves);
+var example3Paths = caveMapReader.CountAllStartToEndPaths(example3Map);
+Console.WriteLine($"No of paths to end: {example3Paths}");
+var example3Paths2 = caveMapReader.CountAllStartToEndPathsPart2(example3Map);
+Console.WriteLine($"No of paths to end: {example3Paths2}");
+
+var part1CaveMap = caveMapReader.ReadCavesFromFile(@".\Day 12\Input\Caves.txt");
+var part1Paths = caveMapReader.CountAllStartToEndPaths(part1CaveMap);
+Console.WriteLine($"No of paths to end: {part1Paths}");
+var part2Paths = caveMapReader.CountAllStartToEndPathsPart2(part1CaveMap);
+Console.WriteLine($"No of paths to end: {part2Paths}");
+
+#endregion
 Console.ReadKey();
