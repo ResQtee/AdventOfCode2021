@@ -3,6 +3,7 @@ using AdventOfCode2021.Day_1;
 using AdventOfCode2021.Day_10;
 using AdventOfCode2021.Day_11;
 using AdventOfCode2021.Day_12;
+using AdventOfCode2021.Day_13;
 using AdventOfCode2021.Day_2;
 using AdventOfCode2021.Day_3;
 using AdventOfCode2021.Day_4;
@@ -278,8 +279,7 @@ var dumboMap = delr.Read(@".\Day 11\Input\DumboEnergyLevels.txt");
 //sim.Simulate(dumboMap, 100);
 Console.WriteLine($"Steps: {sim.SynchronizedFlashCounter(dumboMap)}");
 #endregion
-*/
-#endregion
+
 
 #region Day 12
 Console.ForegroundColor = ConsoleColor.Red;
@@ -317,6 +317,21 @@ var part1Paths = caveMapReader.CountAllStartToEndPaths(part1CaveMap);
 Console.WriteLine($"No of paths to end: {part1Paths}");
 var part2Paths = caveMapReader.CountAllStartToEndPathsPart2(part1CaveMap);
 Console.WriteLine($"No of paths to end: {part2Paths}");
+*/
+#endregion
+
+#region Day 13
+Console.ForegroundColor = ConsoleColor.Red;
+Console.WriteLine($"{Environment.NewLine}----- Day 13 -----");
+Console.ForegroundColor = originalBgColor;
+
+ManualPage1Reader manualPage1Reader = new ManualPage1Reader();
+
+var exampleOrigami = manualPage1Reader.Read(@".\Day 13\Input\ExamplePage.txt");
+exampleOrigami.ExecuteInstructions();
+
+var origami = manualPage1Reader.Read(@".\Day 13\Input\ManualPage1.txt");
+origami.ExecuteInstructions();
 
 #endregion
 Console.ReadKey();
